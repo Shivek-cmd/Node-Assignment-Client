@@ -23,6 +23,7 @@ export default function Home() {
     totalUsers: 0,
     limit: 10,
   });
+  const [isDeleting, setIsDeleting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [jumpToPage, setJumpToPage] = useState('');
 
@@ -110,6 +111,7 @@ export default function Home() {
   };
 
   const handleDeleteUser = async () => {
+    setIsDeleting(true);
     try {
       await deleteUser(selectedUser._id);
       await fetchUsers(pagination.currentPage);
@@ -117,6 +119,7 @@ export default function Home() {
     } catch (err) {
       toast.error('Failed to delete user');
     } finally {
+      setIsDeleting(false);
       setShowDeleteModal(false);
       setSelectedUser(null);
     }
@@ -335,11 +338,12 @@ export default function Home() {
                 Cancel
               </button>
               <button
-                onClick={handleDeleteUser}
-                className="cursor-pointer px-4 py-2 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all duration-200 font-medium"
-              >
-                Delete
-              </button>
+              onClick={handleDeleteUser}
+              disabled={isDeleting}
+              className="cursor-pointer px-4 py-2 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all duration-200 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isDeleting ? 'Deleting...' : 'Delete'}
+            </button>
             </div>
           </motion.div>
         </motion.div>
