@@ -123,7 +123,7 @@ export default function Home() {
   };
 
   // Calculate pagination range
-  const maxPagesToShow = 5; // Show 5 page buttons at a time
+  const maxPagesToShow = 5; 
   const halfRange = Math.floor(maxPagesToShow / 2);
   let startPage = Math.max(1, pagination.currentPage - halfRange);
   let endPage = Math.min(pagination.totalPages, startPage + maxPagesToShow - 1);
