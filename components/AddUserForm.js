@@ -40,24 +40,24 @@ export default function AddUserForm({ onUserSubmitted, initialData }) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       {apiError && (
-        <div className="text-sm text-red-600 bg-red-100 dark:bg-red-900 dark:text-red-200 p-3 rounded-md">
+        <div className="text-sm text-red-600 bg-red-100   p-3 rounded-md">
           {apiError}
         </div>
       )}
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="name" className="block text-sm font-medium text-gray-700 ">
           Name
         </label>
         <input
           id="name"
           {...register('name', { required: 'Name is required' })}
-          className="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm p-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-indigo-500"
+          className="mt-1 block w-full border border-gray-300  rounded-md shadow-sm p-3 bg-white  text-gray-900  focus:ring-indigo-500 focus:border-indigo-500"
           disabled={isSubmitting}
         />
         {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>}
       </div>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="email" className="block text-sm font-medium text-gray-700 ">
           Email
         </label>
         <input
@@ -67,7 +67,7 @@ export default function AddUserForm({ onUserSubmitted, initialData }) {
             required: 'Email is required',
             pattern: { value: /^\S+@\S+$/i, message: 'Invalid email format' },
           })}
-          className="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md shadow-sm p-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-indigo-500"
+          className="mt-1 block w-full border border-gray-300  rounded-md shadow-sm p-3 bg-white  text-gray-900  focus:ring-indigo-500 focus:border-indigo-500"
           disabled={isSubmitting}
         />
         {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
@@ -75,9 +75,15 @@ export default function AddUserForm({ onUserSubmitted, initialData }) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full cursor-pointer bg-indigo-600 text-white px-4 py-3 rounded-md hover:bg-indigo-700 transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full cursor-pointer bg-gradient-to-r from-black via-gray-800 to-gray-700 text-white px-4 py-3 rounded-md hover:from-gray-800 hover:via-gray-700 hover:to-gray-600 transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {isSubmitting ? (isEditing ? 'Updating...' : 'Adding...') : (isEditing ? 'Update User' : 'Add User')}
+        {isSubmitting
+          ? isEditing
+            ? 'Updating...'
+            : 'Adding...'
+          : isEditing
+          ? 'Update User'
+          : 'Add User'}
       </button>
     </form>
   );
