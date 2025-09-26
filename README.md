@@ -29,7 +29,6 @@ A modern, dashboard for managing users with CRUD operations.
 
 1. Clone the repository  
    git clone https://github.com/Shivek-cmd/Node-Assignment-Client.git
-   cd client
 
 
 2. Install dependencies
