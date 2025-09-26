@@ -143,26 +143,9 @@ export default function Home() {
       <header className="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-10">
         <div className="container mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center">
           <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
-            User Management Dashboard
+            User Management
           </h1>
-          <div className="flex items-center space-x-4 mt-4 sm:mt-0">
-            <input
-              type="text"
-              placeholder="Search users..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="px-4 py-2.5 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 w-full sm:w-72 transition-all duration-200"
-            />
-            <button
-              className="p-2.5 rounded-xl bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-300 hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-all duration-200"
-              onClick={toggleDarkMode}
-              aria-label="Toggle dark mode"
-            >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-            </button>
-          </div>
+         
         </div>
       </header>
 
